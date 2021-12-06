@@ -51,7 +51,7 @@ class New_Quiz extends Component {
         var userId = this.props.match.params.id;
         console.log("newQuiz",userId);
         const token = localStorage.getItem("token")
-        var res = await axios.post('http://localhost:3000/quiz/addQuiz', {quizName: this.state.quiz_name, quizDescription: this.state.info,userId
+        var res = await axios.post('https://kahhotbackendapp.herokuapp.com/quiz/addQuiz', {quizName: this.state.quiz_name, quizDescription: this.state.info,userId
         },{
             headers:{
                 'auth-token':token

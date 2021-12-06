@@ -43,7 +43,7 @@ function QuizComponent(props){
     const getQuizzes=async()=>{
         // console.log("user_id",userId);
         console.log("token",token);
-        var response = await axios.get(`http://localhost:3000/quiz/getQuizzes`,{
+        var response = await axios.get(`https://kahhotbackendapp.herokuapp.com/quiz/getQuizzes`,{
             headers:{
                 'auth-token':token
             }
@@ -60,7 +60,7 @@ function QuizComponent(props){
     //     history.push(`/createQuiz`);
     // }
     const setRedirect = async(e)=>{
-        var response = await axios.get(`http://localhost:3000/quizquestions/getQuestions/${e._id}`,{
+        var response = await axios.get(`https://kahhotbackendapp.herokuapp.com/quizquestions/getQuestions/${e._id}`,{
             headers:{
               'auth-token':token
             }
@@ -90,7 +90,7 @@ function QuizComponent(props){
         // if(decoded.exp*1000<=Date.now()){
         //     props.history.push("/users/login");
         // }else{
-       var res =  await axios.delete(`http://localhost:3000/quiz/deleteQuiz/${id}`,{
+       var res =  await axios.delete(`https://kahhotbackendapp.herokuapp.com/quiz/deleteQuiz/${id}`,{
            headers:{
                'auth-token':token
            }

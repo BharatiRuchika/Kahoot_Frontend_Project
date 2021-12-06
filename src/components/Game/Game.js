@@ -54,7 +54,7 @@ class Game extends Component {
         console.log("game component mounted");
       console.log("players",this.state.players);
       console.log("props",this.props);
-        var res = await axios.get(`http://localhost:3000/quizquestions/getQuestions/${this.props.quiz._id}`,{
+        var res = await axios.get(`https://kahhotbackendapp.herokuapp.com/quizquestions/getQuestions/${this.props.quiz._id}`,{
             headers:{
                 'auth-token':token
             }

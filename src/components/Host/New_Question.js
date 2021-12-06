@@ -36,7 +36,7 @@ import './Host.css';
         let { id } = this.props.match.params;
         console.log("id",id);
         if (question && answer1 && answer2 && answer3 && answer4 && correctAnswer) {
-        var response =  await axios.post("http://localhost:3000/quizquestions/addQuestions", { question, answer1, answer2, answer3, answer4, correctAnswer,id 
+        var response =  await axios.post("https://kahhotbackendapp.herokuapp.com/quizquestions/addQuestions", { question, answer1, answer2, answer3, answer4, correctAnswer,id 
         },{
             headers:{
                 'auth-token':token
