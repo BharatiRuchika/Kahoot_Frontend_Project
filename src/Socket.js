@@ -1,6 +1,6 @@
 import {io} from 'socket.io-client';
 // let socket = io("http://localhost:5000");
-// var socket = io.connect('localhost:8080', {reconnect: true});
+// var socket = io.connect('https://kahhotbackendapp.herokuapp.com', {reconnect: true});
 var connectionOptions = {
 	"force new connection" : true,
 	"reconnect":true,
@@ -8,7 +8,7 @@ var connectionOptions = {
 	"timeout" : 10000,				
 	"transports" : ["websocket"]
 };
-let socket = io.connect('http://localhost:5000',connectionOptions);
+let socket = io.connect('https://kahhotbackendapp.herokuapp.com',connectionOptions);
 
 console.log("socket",socket);
 export default socket;
