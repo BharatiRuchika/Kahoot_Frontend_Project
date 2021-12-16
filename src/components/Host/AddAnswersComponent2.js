@@ -47,7 +47,7 @@ class Questions extends Component {
     async getQuestions() {
         const token = localStorage.getItem("token");
        console.log(`id is ${this.props.quizToEdit._id}`)
-       var response = await axios.get(`https://kahhotbackendapp.herokuapp.com/quizquestions/getQuestions/${this.props.quizToEdit._id}`,{
+       var response = await axios.get(`https://kahootbackendapp.herokuapp.com/quizquestions/getQuestions/${this.props.quizToEdit._id}`,{
            headers:{
                'auth-token':token
            }
@@ -65,7 +65,7 @@ class Questions extends Component {
         if(decoded.exp*1000<=Date.now()){
             this.props.history.push("/users/login");
         }else{
-            var response =  await axios.delete(`https://kahhotbackendapp.herokuapp.com/quizquestions/deleteQuestion/${id}`,{
+            var response =  await axios.delete(`https://kahootbackendapp.herokuapp.com/quizquestions/deleteQuestion/${id}`,{
            headers:{
                'auth-token':token
            }
@@ -98,7 +98,7 @@ class Questions extends Component {
             if(decoded.exp*1000<=Date.now()){
                 this.props.history.push("/users/login");
             }else{
-                await axios.put(`https://kahhotbackendapp.herokuapp.com/quiz/updateQuiz/${id}`, { quizName: newName, quizDescription: newInfo },{
+                await axios.put(`https://kahootbackendapp.herokuapp.com/quiz/updateQuiz/${id}`, { quizName: newName, quizDescription: newInfo },{
                     headers:{
                         'auth-token':token
                     }
@@ -116,7 +116,7 @@ class Questions extends Component {
         // if(decoded.exp*1000<=Date.now()){
         //     this.props.history.push("/users/login");
         // }else{
-        var response = await axios.get(` https://kahhotbackendapp.herokuapp.com/quiz/getQuiz/${this.props.quizToEdit._id}`,{
+        var response = await axios.get(`https://kahootbackendapp.herokuapp.com/quiz/getQuiz/${this.props.quizToEdit._id}`,{
             headers:{
                 'auth-token':token
             }

@@ -90,7 +90,7 @@ function QuizComponent(props){
         // if(decoded.exp*1000<=Date.now()){
         //     props.history.push("/users/login");
         // }else{
-       var res =  await axios.delete(`https://kahhotbackendapp.herokuapp.com/quiz/deleteQuiz/${id}`,{
+       var res =  await axios.delete(`https://kahootbackendapp.herokuapp.com/quiz/deleteQuiz/${id}`,{
            headers:{
                'auth-token':token
            }
@@ -107,10 +107,7 @@ function QuizComponent(props){
     if (quiz.redirect){
         return <Redirect to={`/game/${userId}`}/>
      }
-    //  if(quiz.newQuiz){
-    //      console.log("userId",userId);
-    //   return (<New_Quiz userId={userId} done={done}/>)   
-    //  }
+   
      let quizzes = quiz.quizList;
      console.log("quizzes",quizzes)
      let mappedQuizzes=quizzes.map(quiz => {

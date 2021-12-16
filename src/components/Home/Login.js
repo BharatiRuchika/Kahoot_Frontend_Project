@@ -75,9 +75,6 @@ export default function SignIn() {
     setState({...State,[name]:value,errors:errors});
     setEmail(false);
     setPassword(false);
-    // setErrors(...Errors,email:errors.email)
-  
-
   }
 
   const handleSubmit = async(event) => {
@@ -99,7 +96,7 @@ export default function SignIn() {
       password: data.get('password'),
     });
    
-    var response = await axios.post("https://kahhotbackendapp.herokuapp.com/users/validateUser",{email:data.get("email"),password:data.get("password")});
+    var response = await axios.post("https://kahootbackendapp.herokuapp.com/users/validateUser",{email:data.get("email"),password:data.get("password")});
     console.log("response",response);
   
     if(response.data.authToken){
@@ -108,12 +105,7 @@ export default function SignIn() {
       localStorage.setItem("token",response.data.authToken);
       history.push(`/host/${id}`);
     }
-    // if(response.data.error=="Invalid Password"){
-    //   setPassword(true);
-    // }
-    // if(response.data.error=="email doesnt exist"){
-    //   setEmail(true)
-    // }
+   
   }
   };
 
@@ -135,11 +127,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          {/* {
-      State.errors.loginerror?<h3>fill all information correctly</h3>:""
-    }
-          {Password?<h3 style={{color:'red'}}>Invalid Password</h3>:<></>}
-            {Email?<h3 style={{color:'red'}}>Email doesnt exist</h3>:<></>} */}
+         
           <Box component="form" noValidate onSubmit={handleSubmit}  sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -176,18 +164,14 @@ export default function SignIn() {
            
             <Grid container>
               <Grid item xs>
-                {/* <Link href="#" variant="body2">
-                  Forgot password?
-                </Link> */}
+               
               </Grid>
               <Grid item>
               <Link to='/users/signup' className='btn-link'>
                 <b style={{cursor:'alias',color:'blue'}}>   Don't have an account? Sign Up</b>
                  </Link>
 
-                {/* <Link to="/users/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link> */}
+               
               </Grid>
             </Grid>
           </Box>

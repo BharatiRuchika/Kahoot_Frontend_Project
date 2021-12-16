@@ -7,7 +7,6 @@ import sound1 from '../../Assets/counter.wav';
 import GameQuestions from './Game_Questions';
 import GameQuestionOver from './Game_Question_Over';
 import Socket from "../../Socket";
-// var audio = new Audio("ting.mp3");
 import sound from '../../Assets/ting.mp3';
 import jwt from "jsonwebtoken";
 import "./Game.css";
@@ -43,18 +42,10 @@ class Game extends Component {
         };
         const token = localStorage.getItem("token");
         console.log("token",token);
-        // this.Socket  = io.connect('http://localhost:5000',connectionOptions);
-        // console.log("socket",this.Socket);
-        // if(this.Socket.connected==false){
-        //   this.Socket = io.connect('http://localhost:5000',connectionOptions);
-        //   console.log("socket",this.Socket);
-        // }
-      
-    
-        console.log("game component mounted");
+       console.log("game component mounted");
       console.log("players",this.state.players);
       console.log("props",this.props);
-        var res = await axios.get(`https://kahhotbackendapp.herokuapp.com/quizquestions/getQuestions/${this.props.quiz._id}`,{
+        var res = await axios.get(`https://kahootbackendapp.herokuapp.com/quizquestions/getQuestions/${this.props.quiz._id}`,{
             headers:{
                 'auth-token':token
             }
@@ -212,11 +203,8 @@ class Game extends Component {
     nextQuestion() {
         console.log("next question called");
         let { pin, questions, currentQuestion } = this.state;
-        // console.log("pin",pin);
-        // console.log("questions",questions);
-        // console.log("currentQuestion",currentQuestion);
         this.timeKeeper();
-        // this.hotTimer();
+       
 if(currentQuestion===questions.length){
     this.setState({ gameOver: true })
     Socket.emit('game-over')

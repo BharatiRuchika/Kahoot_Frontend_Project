@@ -1,18 +1,8 @@
-// import Box from '@mui/material/Box';
-// import TextField from '@mui/material/TextField';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import './addQuiz.css';
 import './createQuizComponent.css';
 import {Redirect} from "react-router-dom"
 import {connect} from 'react-redux'
 import {editingQuiz} from '../../Reducer/Reducer';
 import jwt from "jsonwebtoken";
-// import React from "react";
-// import Checkbox from '@mui/material/Checkbox';
-// import Button from 'react-bootstrap/Button';
-// const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
 import {useState} from "react";
 import React, { Component } from 'react';
 import axios from 'axios'
@@ -42,7 +32,7 @@ class New_Quiz extends Component {
         const token = localStorage.getItem("token");
         // var decoded = jwt.decode(token);
       
-        var response = await axios.post(" https://kahhotbackendapp.herokuapp.com/quiz/addQuiz",{
+        var response = await axios.post("https://kahootbackendapp.herokuapp.com/quiz/addQuiz",{
             quizName:this.state.quiz_name,
             quizDescription:this.state.info
         })

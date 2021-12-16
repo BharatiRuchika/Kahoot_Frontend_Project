@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import {Redirect}from "react-router-dom"
 import {connect} from 'react-redux'
-// import {editingQuiz} from './Reducer';
 import QuizComponent from './QuizComponent';
 import AddAnswersComponent2 from './AddAnswersComponent2';
 import {editingQuiz} from '../../Reducer/Reducer';
@@ -18,12 +17,8 @@ class New_Quiz extends Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleTextarea = this.handleTextarea.bind(this);
         this.createQuiz = this.createQuiz.bind(this);
-        // console.log("props",this.props);
-      
-       
     }
     componentDidMount() {
-       
         console.log("props", this.props);
     }
     handleInput(e){
@@ -43,15 +38,11 @@ class New_Quiz extends Component {
         if(this.state.info==""){
             alert("enter quiz description");
         }else{
-        // const token = localStorage.getItem("token");
-        // var decoded = jwt.decode(token);
-        // if(decoded.exp*1000<=Date.now()){
-        //     this.props.history.push("/users/login");
-        // }else{
+       
         var userId = this.props.match.params.id;
         console.log("newQuiz",userId);
         const token = localStorage.getItem("token")
-        var res = await axios.post('https://kahhotbackendapp.herokuapp.com/quiz/addQuiz', {quizName: this.state.quiz_name, quizDescription: this.state.info,userId
+        var res = await axios.post('https://kahootbackendapp.herokuapp.com//quiz/addQuiz', {quizName: this.state.quiz_name, quizDescription: this.state.info,userId
         },{
             headers:{
                 'auth-token':token
@@ -63,13 +54,12 @@ class New_Quiz extends Component {
            this.setState({
                redirect: true
            })
-        // }
         }
     }
     render() {
         if (this.state.redirect){
             return <Redirect to={`/quiz/questions`}/>
-            // return (<QuizComponent userId={this.props.userId}/>)
+          
         }
         return (
             <div className='mapped-container' >
@@ -86,12 +76,5 @@ class New_Quiz extends Component {
         )
     }
 }
-// function mapStateToProps(state) {
-//     return {
-//         quizToEdit: state.quizToEdit
-//     }
-// }
-// export default connect(mapStateToProps, { editingQuiz })(New_Quiz)
-
 export default connect(null, {editingQuiz})(New_Quiz);
 // export default connect(null, {editingQuiz})(New_Quiz)

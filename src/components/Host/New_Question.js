@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import './Host-New-Question.css';
 import jwt from "jsonwebtoken";
 import './Host.css';
-
- class New_Question extends Component {
+class New_Question extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +16,6 @@ import './Host.css';
             answer2: '',
             answer3: '',
             answer4: '',
-            
             correctAnswer: '',
             redirect: false
         }
@@ -25,18 +23,14 @@ import './Host.css';
     }
    async addQuestion() {
     const token = localStorage.getItem("token");
-    // var decoded = jwt.decode(token);
-    // if(decoded.exp*1000<=Date.now()){
-    //     this.props.history.push("/users/login");
-    // }else{
-        let { question, answer1, answer2, answer3, answer4, correctAnswer } = this.state;
+  let { question, answer1, answer2, answer3, answer4, correctAnswer } = this.state;
         if(question=="" || answer1=="" || answer2=="" ||answer3=="" || answer4=="" || correctAnswer==""){
             alert("enter all information");
         }else{
         let { id } = this.props.match.params;
         console.log("id",id);
         if (question && answer1 && answer2 && answer3 && answer4 && correctAnswer) {
-        var response =  await axios.post("https://kahhotbackendapp.herokuapp.com/quizquestions/addQuestions", { question, answer1, answer2, answer3, answer4, correctAnswer,id 
+        var response =  await axios.post("https://kahootbackendapp.herokuapp.com/quizquestions/addQuestions", { question, answer1, answer2, answer3, answer4, correctAnswer,id 
         },{
             headers:{
                 'auth-token':token
@@ -54,19 +48,15 @@ import './Host.css';
             } else {
             alert('All fields must be completed')
         }
-    // }
     }
 }
     render() {
-        // console.log("quizId",this.props.quizToEdit._id);
         console.log("props",this.props);
         if (this.state.redirect) {
             var userId = this.props.quizToEdit.userId;
-            // return <Redirect to={`/host/${userId}`}/>;
             return <Redirect to={`/quiz/questions`} />;
         }
         return (
-// I decided to just use arrow functions here instead of binding all of this at the top - Nate
   <div className='background'>
             <Link to='/host/questions' className='btn-go-back'>
                 go back pls :)

@@ -37,11 +37,7 @@ class Player extends Component {
         };
        
         console.log("socket",this.Socket);
-        // if(this.Socket.connected==false){
-          
-        //      this.Socket = io.connect('http://localhost:5000',connectionOptions);
-        //      console.log("socket",this.Socket);
-        // }
+      
         console.log("im here");
         console.log("props",this.props);
         console.log("props",typeof this.props.selectedPin);

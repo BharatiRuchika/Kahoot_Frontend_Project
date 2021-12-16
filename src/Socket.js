@@ -8,7 +8,7 @@ var connectionOptions = {
 	"timeout" : 10000,				
 	"transports" : ["websocket"]
 };
-let socket = io.connect('https://kahhotbackendapp.herokuapp.com',connectionOptions);
+let socket = io.connect('https://kahootbackendapp.herokuapp.com/',connectionOptions);
 
 console.log("socket",socket);
 export default socket;

@@ -40,12 +40,7 @@ function GameOver(props){
         </div> 
     )
 }
-// function mapStateToProps(state) {
-//     return {
-//         selectedPin: state.selectedPin
-//     }
-// }
-// export default connect(mapStateToProps, { handleNickname, selectedPin })(GameOver)
+
 
 function mapStateToProps(state) {
     console.log("state",state);

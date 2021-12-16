@@ -57,20 +57,8 @@ class Landing extends Component {
         if(this.state.pin==""){
             alert("enter game pin first");
         }else{
-        Socket.emit('pin-entered',this.state.pin);
-      
-    //     Socket.on("valid",(data)=>{
-    //         console.log("im in valid");
-    //         console.log("data",data);
-    //       if(data==true){
-    //         this.props.selectedPin(this.state.pin)
-    //         this.setState({
-    //          toggle: true
-    //      })
-    //     } else{
-    //         alert("This pin is not exist")
-    //     }
-    // })
+        Socket.emit('pin-entered',this.state.pin);      
+    
 }
 }       
     
