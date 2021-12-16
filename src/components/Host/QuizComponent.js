@@ -60,7 +60,7 @@ function QuizComponent(props){
     //     history.push(`/createQuiz`);
     // }
     const setRedirect = async(e)=>{
-        var response = await axios.get(`https://kahhotbackendapp.herokuapp.com/quizquestions/getQuestions/${e._id}`,{
+        var response = await axios.get(`https://kahootbackendapp.herokuapp.com/quizquestions/getQuestions/${e._id}`,{
             headers:{
               'auth-token':token
             }
