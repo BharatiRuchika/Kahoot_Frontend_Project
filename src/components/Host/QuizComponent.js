@@ -43,7 +43,7 @@ function QuizComponent(props){
     const getQuizzes=async()=>{
         // console.log("user_id",userId);
         console.log("token",token);
-        var response = await axios.get(`https://kahhotbackendapp.herokuapp.com/quiz/getQuizzes`,{
+        var response = await axios.get(`https://kahootbackendapp.herokuapp.com/quiz/getQuizzes`,{
             headers:{
                 'auth-token':token
             }
