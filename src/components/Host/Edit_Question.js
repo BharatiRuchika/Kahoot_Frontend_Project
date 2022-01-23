@@ -27,7 +27,7 @@ export default class Edit_Question extends Component {
         }
     async getQuestion() {
         const token = localStorage.getItem("token");
-        var response = await axios.get(`https://kahootbackendapp.herokuapp.com/quizquestions/getQuestion/${this.props.match.params.id}`, {
+        var response = await axios.get(`https://my-kahoot-backend.herokuapp.com/quizquestions/getQuestion/${this.props.match.params.id}`, {
             headers: {
                 'auth-token': token
             }
@@ -58,7 +58,7 @@ export default class Edit_Question extends Component {
             // if (decoded.exp * 1000 <= Date.now()) {
             //     this.props.history.push("/users/login");
             // } else {
-                var response = await axios.put(`https://kahootbackendapp.herokuapp.com/quizquestions/updateQuestion/${quizId}/${id}`, { question, answer1, answer2, answer3, answer4, correctAnswer }, {
+                var response = await axios.put(`https://my-kahoot-backend.herokuapp.com/quizquestions/updateQuestion/${quizId}/${id}`, { question, answer1, answer2, answer3, answer4, correctAnswer }, {
                     headers: {
                         'auth-token': token
                     }

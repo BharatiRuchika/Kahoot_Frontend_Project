@@ -32,7 +32,7 @@ class New_Quiz extends Component {
         const token = localStorage.getItem("token");
         // var decoded = jwt.decode(token);
       
-        var response = await axios.post("https://kahootbackendapp.herokuapp.com/quiz/addQuiz",{
+        var response = await axios.post("https://my-kahoot-backend.herokuapp.com/quiz/addQuiz",{
             quizName:this.state.quiz_name,
             quizDescription:this.state.info
         })

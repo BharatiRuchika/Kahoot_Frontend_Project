@@ -96,7 +96,7 @@ export default function SignIn() {
       password: data.get('password'),
     });
    
-    var response = await axios.post("https://kahootbackendapp.herokuapp.com/users/validateUser",{email:data.get("email"),password:data.get("password")});
+    var response = await axios.post("https://my-kahoot-backend.herokuapp.com/users/validateUser",{email:data.get("email"),password:data.get("password")});
     console.log("response",response);
   
     if(response.data.authToken){

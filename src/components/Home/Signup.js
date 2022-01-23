@@ -150,7 +150,7 @@ console.log("value",value);
     const lname1 = data.get('lastName');
     const email1 = data.get('email');
     const password1 = data.get('password');
-  var response = await axios.post("https://kahootbackendapp.herokuapp.com/users/addUser",{fname:fname1,lname:lname1,email:email1,password:password1});
+  var response = await axios.post("https://my-kahoot-backend.herokuapp.com/users/addUser",{fname:fname1,lname:lname1,email:email1,password:password1});
       console.log("response",response.data);
      if(response.data =="user already exist"){ 
        setFlag(true);
