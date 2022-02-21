@@ -6,7 +6,7 @@ var connectionOptions = {
 	"reconnect":true,
 	"reconnectionAttempts": "Infinity",
 	"timeout" : 10000,				
-	"transports" : ["websocket"]
+	"transports" : ["polling"]
 };
 let socket = io.connect('https://my-kahoot-backend.herokuapp.com/',connectionOptions);
 
